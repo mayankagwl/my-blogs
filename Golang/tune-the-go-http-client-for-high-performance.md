@@ -1,6 +1,6 @@
-# Tune High-Performance HTTP Client for Production
+# Tune The Go HTTP Client For High-Performance
 
-![Tune High-Performance HTTP Client for Production](tune_high_performance_http_client_for_production.md.jpg)
+![Tune The Go HTTP Client For High-Performance](tune-the-go-http-client-for-high-performance.jpg)
 
 ## Overview
 
@@ -71,4 +71,4 @@ By increasing connection per host and the total number of idle connection, this 
 Connection pool size and connection per host count can be increased as per server resources and requirements.
 
 ## Conclusion
-In this article, we discussed the problems around the 'net/http' client default configurations. By changing the some of the default settings of HTTP Client, we can achieve High performance HTTP client library for production use.
+In this article, we discussed the problems around the 'net/http' client default configurations. By changing some of the default settings of HTTP Client, we can achieve a High-performance HTTP client for production use.

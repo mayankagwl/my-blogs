@@ -1,4 +1,4 @@
-# Golang High Performance HTTP Client for Production
+# Tune High-Performance HTTP Client for Production
 
 ![Go HTTP Client Settings for Production](powerboat-2784250_1280.jpg)
 

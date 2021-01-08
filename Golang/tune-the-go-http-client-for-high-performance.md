@@ -4,9 +4,11 @@
 
 ## Overview
 
-HTTP(hypertext transfer protocol) is a communication protocol that transfers data between client and server.HTTP requests are very essential to access resources from the same or remote server. In Golang net Http package comes with the default settings that we need to adjust according to our requirement for high performance.
+HTTP(hypertext transfer protocol) is a communication protocol that transfers data between client and server. HTTP requests are very essential to access resources from the same or remote server. In Golang, net Http package comes with the default settings that we need to adjust according to our requirement for high performance.
 
-While working on the Golang projects, I came to know if the HTTP is not configured properly, it can crash your server.
+While working on the Golang projects, I came to know that improper configuration of HTTP may can crash your server anytime.
+
+In the time when I was working with HTTP Client, Observed some problems and there solutions, listed below:
 
 ### Problem:1 Default Http Client
 
@@ -29,11 +31,12 @@ If the Requested resource is not responded to in 10 seconds, the HTTP connection
 ### Problem:2 Default Http Transport
 By default, the Golang Http client performs the connection pooling. When the request completes that connection remains open until the idle connection timeout(default is 90 seconds),  so if another request came, that uses the same established connection instead of creating a new connection, after the idle connection time, the connection will return to the pool.
 
-By using the connection pooling, it will keep less connection open and more requests will be served with low server resources
+By using the connection pooling, it will keep less connection open and more requests will be served with minimal server resources
 
 When we not defined transport in the http.Client, it uses the default transport [Go HTTP Transport](https://golang.org/src/net/http/transport.go)
 
 Default configuration of the HTTP Transport, 
+
 ```
 var DefaultTransport RoundTripper = &Transport{
 	...
@@ -67,7 +70,8 @@ httpClient = &http.Client{
 }
 ```
 
-By increasing connection per host and the total number of idle connection, this will increase the performance and serve more request with less server resources.
+By increasing connection per host and the total number of idle connection, this will increase the performance and serve more request with minimal server resources.
+
 Connection pool size and connection per host count can be increased as per server resources and requirements.
 
 ## Conclusion

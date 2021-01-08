@@ -39,8 +39,6 @@ var DefaultTransport RoundTripper = &Transport{
 	...
 }
 
-// DefaultMaxIdleConnsPerHost is the default value of Transport's
-// MaxIdleConnsPerHost.
 const DefaultMaxIdleConnsPerHost = 2
 ```
 

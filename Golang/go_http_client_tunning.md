@@ -6,14 +6,14 @@ HTTP(hypertext transfer protocol) is a communication protocol that transfers dat
 
 While working on the Golang projects, I came to know if the HTTP is not configured properly, it can crash your server.
 
-Problem:1 Default Http Client
+### Problem:1 Default Http Client
 
 The HTTP client does not contain the request timeout setting by default.
 If you are using http.Get(URL) or &Client{} that uses the http.DefaultClient. DefaultClient has not timeout setting, it comes with `no timeout`
 
 If the Rest API where you are making the request is broken not sending the response back that keeps the connection open. More request came, open connection count will increase, So will increase the server resources utilization, that will result in crashing you server when resource limits being reached.
 
-Solution: Don't use the default HTTP client, always specify the timeout in http.Client according to your use case
+### Solution: Don't use the default HTTP client, always specify the timeout in http.Client according to your use case
 ```
 var httpClient = &http.Client{
   Timeout: time.Second * 10,
@@ -24,7 +24,7 @@ For the Rest API, it is recommended that timeout should not more than 10 seconds
 If the Requested resource is not responded to in 10 seconds, the HTTP connection will be canceled with net/http: request canceled (Client.Timeout exceeded ...) error.
 
 
-Problem:1 Default Http Transport
+### Problem:2 Default Http Transport
 By default, the Golang Http client performs the connection pooling. When the request completes that connection remains open until the idle connection timeout(default is 90 seconds),  so if another request came, that uses the same established connection instead of creating a new connection, after the idle connection time, the connection will return to the pool.
 
 By using the connection pooling, it will keep less connection open and more requests will be served with low server resources
@@ -52,7 +52,7 @@ Means for any particular host out of 100 connection from the  Connection pool on
 
 With the more request came, it will process only 2 requests, other request will wait for the connection to communicate with the host server and go in the `TIME_WAIT` state, As more request came, increase the connection to the `TIME_WAIT` state and increase the server resource utilization, at the limit, the server will crash
 
-Solution: Don't use Default Transport and increase MaxIdleConnsPerHost
+### Solution: Don't use Default Transport and increase MaxIdleConnsPerHost
 
 ```
 t := http.DefaultTransport.(*http.Transport).Clone()

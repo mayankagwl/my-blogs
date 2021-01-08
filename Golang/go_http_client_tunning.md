@@ -1,5 +1,7 @@
 # Go HTTP Client Settings for Production
 
+![Go HTTP Client Settings for Production](powerboat-2784250_1280.jpg)
+
 ## Overview
 
 HTTP(hypertext transfer protocol) is a communication protocol that transfers data between client and server.HTTP requests are very essential to access resources from the same or remote server. In Golang net Http package comes with the default settings that we need to adjust according to our requirement for high performance.

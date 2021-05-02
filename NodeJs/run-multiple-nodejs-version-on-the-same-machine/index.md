@@ -91,4 +91,22 @@ nvm use 12.13.1 //To enable 12.13.1
 ```
 ![nvm use](./images/nvm-use.png)
 
+### Use Custom alias for installed NodeJs versions
+We can create alias as per the Project basis or the group of projects using same NodeJs version.
+```
+nvm alias awesome-project 12.13.1
+```
+After creating Alias, then switch to Alias
+```
+nvm use awesome-project
+```
+Remove the Alias
+```
+nvm unalias awesome-project
+```
 
+### Run to specific NodeJs version, without switching
+```
+nvm run 8.11.1 app.js
+or
+nvm exec 8.11.1 node app.js

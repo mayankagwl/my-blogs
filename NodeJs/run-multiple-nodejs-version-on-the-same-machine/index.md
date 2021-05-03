@@ -4,7 +4,7 @@ date: "2021-04-30"
 coverImage: "index.jpg"
 author: "Mayank Agarwal"
 tags: ["Nodejs", "NVM"]
-description: "In this post, we will discuss how to run multiple node js version on the single machine."
+description: "In this blog, we will get to know about running multiple node js version on the same machine."
 ---
 # Overview
 While working on the multiple projects of NodeJs, we you might required to run different projects on the different node js version or for the legacy node js projects you might required old version of the nodejs version ,and the others required new version of node js, or to checkout the new feature of nodejs, you need to installed latest version of node js 
